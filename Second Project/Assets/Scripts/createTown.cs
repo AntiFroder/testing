@@ -21,7 +21,7 @@ public class createTown : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(Town, new Vector3(MosPos.x, MosPos.y, 0), Quaternion.identity);
+                Instantiate(Town, new Vector3(hit.point.x, hit.point.y, 0), Quaternion.identity);
             }
         }
     }
