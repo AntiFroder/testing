@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class createTown : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject Town;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        Vector3 MosPos = Input.mousePosition;
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(MosPos);
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Instantiate(Town, new Vector3(hit.point.x, hit.point.y, 0), Quaternion.identity);
+            }
+        }
     }
 }
